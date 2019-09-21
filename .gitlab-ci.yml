@@ -1,10 +1,12 @@
-﻿build-ubuntu-1404:
-  image: docker:18.09.9
+image: docker:18.09.9
+services:
+  - docker:18.09.9-dind
+  
+before_script:
+  - echo "$CI_REGISTRY_PASSWORD" | docker login --username "$CI_REGISTRY_USER" --password-stdin
+
+build-ubuntu-1404:
   stage: build
-  services:
-    - docker:18.09.9-dind
-  before_script:
-    - echo "$CI_REGISTRY_PASSWORD" | docker login --username "$CI_REGISTRY_USER" --password-stdin
   script:
     - docker build --pull -t alvisisme/ubuntu:14.04 -f 14.04/Dockerfile 14.04
     - docker push alvisisme/ubuntu:14.04
@@ -12,12 +14,7 @@
     - master
 
 build-ubuntu-1604:
-  image: docker:18.09.9
   stage: build
-  services:
-    - docker:18.09.9-dind
-  before_script:
-    - echo "$CI_REGISTRY_PASSWORD" | docker login --username "$CI_REGISTRY_USER" --password-stdin
   script:
     - docker build --pull -t alvisisme/ubuntu:16.04 -f 16.04/Dockerfile 16.04
     - docker push alvisisme/ubuntu:16.04
@@ -25,12 +22,7 @@ build-ubuntu-1604:
     - master
 
 build-ubuntu-1804:
-  image: docker:18.09.9
   stage: build
-  services:
-    - docker:18.09.9-dind
-  before_script:
-    - echo "$CI_REGISTRY_PASSWORD" | docker login --username "$CI_REGISTRY_USER" --password-stdin
   script:
     - docker build --pull -t alvisisme/ubuntu:18.04 -f 18.04/Dockerfile 18.04
     - docker push alvisisme/ubuntu:18.04

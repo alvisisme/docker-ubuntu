@@ -1,0 +1,13 @@
+services:
+  - docker
+
+before_install:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+script:
+  - docker build --pull -t alvisisme/ubuntu:14.04 -f 14.04/Dockerfile 14.04
+  - docker push alvisisme/ubuntu:14.04
+  - docker build --pull -t alvisisme/ubuntu:16.04 -f 16.04/Dockerfile 16.04
+  - docker push alvisisme/ubuntu:16.04
+  - docker build --pull -t alvisisme/ubuntu:18.04 -f 18.04/Dockerfile 18.04
+  - docker push alvisisme/ubuntu:18.04

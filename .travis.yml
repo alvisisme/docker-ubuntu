@@ -1,17 +1,21 @@
-services:
-  - docker
+language: shell
+os: linux
+arch: amd64
+dist: bionic
+
+services: docker
 
 branches:
   only:
-  - master
+    - master
 
-before_install:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+env:
+  - UBUNTU_VERSION=14.04
+  - UBUNTU_VERSION=16.04
+  - UBUNTU_VERSION=18.04
 
 script:
-  - docker build --pull -t alvisisme/ubuntu:14.04 -f 14.04/Dockerfile 14.04
-  - docker push alvisisme/ubuntu:14.04
-  - docker build --pull -t alvisisme/ubuntu:16.04 -f 16.04/Dockerfile 16.04
-  - docker push alvisisme/ubuntu:16.04
-  - docker build --pull -t alvisisme/ubuntu:18.04 -f 18.04/Dockerfile 18.04
-  - docker push alvisisme/ubuntu:18.04
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - echo $UBUNTU_VERSION
+  - docker build --pull -t alvisisme/ubuntu:$UBUNTU_VERSION -f $UBUNTU_VERSION/Dockerfile $UBUNTU_VERSION
+  - docker push alvisisme/ubuntu:$UBUNTU_VERSION

@@ -16,6 +16,8 @@ env:
 
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - echo $UBUNTU_VERSION
   - docker build --pull -t alvisisme/ubuntu:$UBUNTU_VERSION -f $UBUNTU_VERSION/Dockerfile $UBUNTU_VERSION
   - docker push alvisisme/ubuntu:$UBUNTU_VERSION
+  - echo "$ALIYUN_PASSWORD" | docker login -u "$ALIYUN_USERNAME" --password-stdin registry.cn-hangzhou.aliyuncs.com
+  - docker tag alvisisme/ubuntu:$UBUNTU_VERSION registry.cn-hangzhou.aliyuncs.com/alvisisme/ubuntu:$UBUNTU_VERSION
+  - docker push registry.cn-hangzhou.aliyuncs.com/alvisisme/ubuntu:$UBUNTU_VERSION

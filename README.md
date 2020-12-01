@@ -1,8 +1,8 @@
 # docker-ubuntu
 
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Falvisisme%2Fdocker-ubuntu%2Fbadge%3Fref%3Dmaster&style=flat)](https://actions-badge.atrox.dev/alvisisme/docker-ubuntu/goto?ref=master)
-[![Build Status](https://travis-ci.com/alvisisme/docker-ubuntu.svg?branch=master)](https://travis-ci.com/alvisisme/docker-ubuntu)
-![https://cloud.docker.com/repository/docker/alvisisme/ubuntu](https://img.shields.io/docker/pulls/alvisisme/ubuntu.svg)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/alvisisme/docker-ubuntu/Build%20and%20push%20docker%20images?label=GitHub%20Actions)
+![Travis (.com) branch](https://img.shields.io/travis/com/alvisisme/docker-ubuntu/master?label=Travis%20CI)
+![Docker Pulls](https://img.shields.io/docker/pulls/alvisisme/ubuntu)
 
 个人开发使用的ubuntu基础镜像, 仅修改apt源为国内源，方便中国国内使用。
 

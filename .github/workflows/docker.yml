@@ -26,3 +26,14 @@ jobs:
         buildArgs: UBUNTU_VERSION=${{ matrix.version }}
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build & push docker image to aliyuncs
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+        image: alvisisme/ubuntu
+        tags: ${{ matrix.version }}
+        registry: registry.cn-hangzhou.aliyuncs.com
+        dockerfile: Dockerfile
+        buildArgs: UBUNTU_VERSION=${{ matrix.version }}
+        username: ${{ secrets.ALIYUN_USERNAME }}
+        password: ${{ secrets.ALIYUN_PASSWORD }}

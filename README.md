@@ -1,7 +1,7 @@
 # docker-ubuntu
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/alvisisme/docker-ubuntu/Build%20and%20push%20docker%20images?label=GitHub%20Actions)
-![Travis (.com) branch](https://img.shields.io/travis/com/alvisisme/docker-ubuntu/master?label=Travis%20CI)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/alvisisme/docker-ubuntu/Build%20and%20push%20docker%20images?label=GitHub%20Actions(Docker%20Hub))
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/alvisisme/docker-ubuntu/Build%20and%20push%20docker%20images%20to%20aliyuncs?label=GitHub%20Actions(aliyuncs))
 ![Docker Pulls](https://img.shields.io/docker/pulls/alvisisme/ubuntu)
 
 个人开发使用的ubuntu基础镜像, 仅修改apt源为国内源，方便中国国内使用。
